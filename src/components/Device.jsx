@@ -1,3 +1,4 @@
+import React from "react";
 import cloud from "../image/cloud.png";
 import mac from "../image/mac.png";
 import page from "../image/page.png";
@@ -57,15 +58,16 @@ const HomePage = styled.div`
 `;
 
 /* 날짜 표시 */
-const Date = styled.div`
+const DateContainer = styled.div`
   width: 10vw;
   height: 4vh;
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 4vw;
-
-  font-size: 2vh;
+  top:4vh;
+  right: 6vw;
+  
+  font-size: 20px;
   text-align: center;
   line-height: 4vh;
   color: white;
@@ -73,14 +75,22 @@ const Date = styled.div`
 
 /* 장치 컴포넌트 */
 function Device() {
+  // 현재 날짜를 가져오는 함수
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0"); // 월을 두 자리 숫자로 포맷팅
+    const day = String(today.getDate()).padStart(2, "0"); // 일을 두 자리 숫자로 포맷팅
+    return `${year}.${month}.${day}`;
+  };
+
   return (
     <>
       <Cloud1 />
       <Cloud2 />
       <Mac>
-        <HomePage>
-          <Date>2023.09.04</Date>
-        </HomePage>
+        <HomePage />
+        <DateContainer>{getCurrentDate()}</DateContainer> {/* 현재 날짜 표시 */}
         <Button />
       </Mac>
     </>

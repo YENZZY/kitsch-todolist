@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import timer_star from "../image/timer_star.png";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -11,9 +12,92 @@ const Page = styled.div`
   left: 22.5vw;
 `;
 
+/* 타이머 배너*/
+const TimerText = styled.div`
+  position: absolute;
+  top: -4vh;
+  left: 47%;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+`;
+
+/* 타이머 원 */
+const TimerCircle = styled.div`
+  position: absolute;
+  width: 14vw;
+  height: 26vh;
+  top: 7vh;
+  left: 19.5vw;
+  background-color: transparent;
+  border: 20px solid #ECCEF5;
+  border-radius: 50%; 
+`
+
+/*타이머 별*/
+const TimerStar = styled.div`
+  position: absolute;
+  width: 4vw;
+  height: 7vh;
+  top: 4vh;
+  left: 25.5vw;
+  background: url(${timer_star}) no-repeat;
+  background-size: contain;
+`
+
+/* 타이머 시간*/
+const TimerTime = styled.div`
+  position: absolute;
+  top: 13vh;
+  left: 22vw;
+  color: white;
+  font-size: 80px;
+  font-weight: bold;
+`;
+
+/*타이머 start 버튼*/
+const TimerStart = styled.div`
+  position: absolute;
+  top: 25vh;
+  left: 22vw;
+  width: 5vw;
+  height: 3.5vh;
+  border-radius: 10px;
+  background-color: #CEECF5;
+
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.6vh;
+  color: white;
+`
+/*타이머 stop 버튼*/
+const TimerStop = styled.div`
+  position: absolute;
+  top: 25vh;
+  left: 28vw;
+  width: 5vw;
+  height: 3.5vh;
+  border-radius: 10px;
+  background-color: #F6CED8;
+
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.6vh;
+  color: white;
+`
+
 /* 타이머 화면 컴포넌트 */
 function TimerDisplay() {
-  return <Page></Page>;
+  return <Page>
+            <TimerText>timer</TimerText>
+              <TimerCircle/>
+              <TimerStar/>
+              <TimerTime>00:00</TimerTime>
+              <TimerStart>start</TimerStart>
+              <TimerStop>stop</TimerStop>
+          </Page>;
 }
 
 export default TimerDisplay;

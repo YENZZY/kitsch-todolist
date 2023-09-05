@@ -13,6 +13,17 @@ const Page = styled.div`
   left: 22.5vw;
 `;
 
+/* 투두리스트 배너*/
+const ListText = styled.div`
+  position: absolute;
+  top: -4vh;
+  left: 24.5vw;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+`;
+
+
 /* 할 일 목록이 추가되는 공간 */
 const Lists = styled.ul`
   width: 54.9vw;
@@ -72,19 +83,20 @@ const InputButton = styled.button`
 function TodoDisplay() {
   return (
     <Page>
-      <TodoInput>
-        <InputBox placeholder="enter" />
-        <InputButton />
-      </TodoInput>
-      <Lists>
-        <List />
-        <List />
-        <List />
-        <List />
-        <List />
-        <List />
-        <List />
-      </Lists>
+      <ListText>to-do list</ListText>
+        <TodoInput>
+          <InputBox placeholder="enter" />
+          <InputButton />
+        </TodoInput>
+        <Lists>
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+          <List />
+        </Lists>
     </Page>
   );
 }
