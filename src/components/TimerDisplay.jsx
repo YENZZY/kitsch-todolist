@@ -25,31 +25,33 @@ const TimerText = styled.div`
 /* 타이머 원 */
 const TimerCircle = styled.div`
   position: absolute;
-  width: 14vw;
+  width: 20vw;
   height: 26vh;
   top: 7vh;
-  left: 19.5vw;
+  left: 16.5vw;
   background-color: transparent;
-  border: 2vh solid #ECCEF5;
-  border-radius: 100vh; 
-`
+  border: 2vh solid #eccef5;
+  border-radius: 50%;
+`;
 
 /*타이머 별*/
 const TimerStar = styled.div`
   position: absolute;
   width: 4vw;
-  height: 7vh;
+  height: 6vh;
   top: 4vh;
   left: 25.5vw;
   background: url(${timer_star}) no-repeat;
-  background-size: contain;
-`
+  background-size: 4vw 6vh;
+`;
 
 /* 타이머 시간*/
 const TimerTime = styled.div`
   position: absolute;
   top: 13vh;
-  left: 22vw;
+  left: 17.6vw;
+  width: 20vw;
+  text-align: center;
   color: white;
   font-size: 8.5vh;
   font-weight: bold;
@@ -63,14 +65,14 @@ const TimerStart = styled.div`
   width: 5vw;
   height: 3.5vh;
   border-radius: 1vh;
-  background-color: #CEECF5;
+  background-color: #ceecf5;
 
   font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
   line-height: 2.6vh;
   color: white;
-`
+`;
 /*타이머 stop 버튼*/
 const TimerStop = styled.div`
   position: absolute;
@@ -79,25 +81,27 @@ const TimerStop = styled.div`
   width: 5vw;
   height: 3.5vh;
   border-radius: 1vh;
-  background-color: #F6CED8;
+  background-color: #f6ced8;
 
   font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
   line-height: 2.6vh;
   color: white;
-`
+`;
 
 /* 타이머 화면 컴포넌트 */
 function TimerDisplay() {
-  return <Page>
-            <TimerText>timer</TimerText>
-              <TimerCircle/>
-              <TimerStar/>
-              <TimerTime>00:00</TimerTime>
-              <TimerStart>start</TimerStart>
-              <TimerStop>stop</TimerStop>
-          </Page>;
+  return (
+    <Page>
+      <TimerText>timer</TimerText>
+      <TimerCircle />
+      <TimerStar />
+      <TimerTime>00:00</TimerTime>
+      <TimerStart>start</TimerStart>
+      <TimerStop>stop</TimerStop>
+    </Page>
+  );
 }
 
 export default TimerDisplay;

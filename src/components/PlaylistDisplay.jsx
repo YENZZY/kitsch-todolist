@@ -25,23 +25,24 @@ const PlaylistText = styled.div`
 /* 플레이 리스트 샘플*/
 const PlaylistImg = styled.div`
   width: 37vw;
-  height: 35vh;
-  position: relative;
+  height: 34.5vh;
+  position: absolute;
   top: 4.6vh;
   left: 9vw;
-  overflow: hidden;
 
   background-image: url(${playlist_img});
-  background-repeat:no-repeat;
-  background-size:contain;
+  background-repeat: no-repeat;
+  background-size: 37vw 34.5vh;
 `;
 
 /* 플레이리스트 화면 컴포넌트 */
 function PlaylistDisplay() {
-  return  <Page>
-            <PlaylistText>play list</PlaylistText>
-              <PlaylistImg/>
-          </Page>;
+  return (
+    <Page>
+      <PlaylistText>play list</PlaylistText>
+      <PlaylistImg />
+    </Page>
+  );
 }
 
 export default PlaylistDisplay;

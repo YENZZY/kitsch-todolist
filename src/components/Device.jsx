@@ -64,9 +64,9 @@ const DateContainer = styled.div`
   margin: 0;
   padding: 0;
   position: absolute;
-  top:4vh;
-  right: 6vw;
-  
+  top: 4vh;
+  right: 7vw;
+
   font-size: 2vh;
   text-align: center;
   line-height: 4vh;
