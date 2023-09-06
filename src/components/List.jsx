@@ -61,7 +61,8 @@ const Todo = styled.div`
   color: #1a1a1a;
   font-size: 2vh;
   line-height: 4vh;
-  text-decoration: ${({ $decoration }) => ($decoration ? "line-through" : "")};
+  text-decoration: ${({ $decoration }) =>
+    $decoration === "completed" ? "line-through" : "none"};
 `;
 
 /* 투두 리스트가 추가될 시 추가되는 박스 */

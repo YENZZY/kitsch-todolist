@@ -27,8 +27,8 @@ const TimerText = styled.div`
 const TimerCircle = styled.div`
   position: absolute;
   width: 17vw;
-  height: 17vw;
-  top: 9vh;
+  height: 30vh;
+  top: 8vh;
   left: 23vw;
   background-color: transparent;
   border: 2vh solid #eccef5;

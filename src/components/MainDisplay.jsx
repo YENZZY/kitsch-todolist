@@ -26,8 +26,8 @@ const GifBg = styled.div`
 const Title = styled.div`
   width: 55vw;
   position: absolute;
-  top: 11vh;
-  left: 10vw;
+  top: 13vh;
+  left: 14vw;
 `;
 
 const bounce = keyframes`
@@ -91,7 +91,7 @@ function MainDisplay() {
   };
 
   return (
-    <Page>
+    <Page onLoad={countdown()}>
       <GifBg>
         <Title>
           <Words>K</Words>
