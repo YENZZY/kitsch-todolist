@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import heart from "../image/todo_cloud.png";
 import timer_star from "../image/timer_star.png";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
@@ -58,36 +59,53 @@ const TimerTime = styled.div`
 `;
 
 /*타이머 start 버튼*/
-const TimerStart = styled.div`
+const TimerStart = styled.button`
   position: absolute;
   top: 25vh;
-  left: 22vw;
-  width: 5vw;
-  height: 3.5vh;
-  border-radius: 1vh;
-  background-color: #ceecf5;
+  left: 21.5vw;
+  width: 6vw;
+  height: 7vh;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  filter: opacity(0.7) drop-shadow(0 0 0 #93DAFF);
+
+  background: url(${heart}) no-repeat;
+  background-size: 5vw 6.5vh;
+  background-position: center;
+  border: none;
 
   font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
-  line-height: 2.6vh;
-  color: white;
+  line-height: 6vh;
+  color: #73E1E1;
 `;
+
 /*타이머 stop 버튼*/
 const TimerStop = styled.div`
   position: absolute;
   top: 25vh;
-  left: 28vw;
-  width: 5vw;
-  height: 3.5vh;
-  border-radius: 1vh;
-  background-color: #f6ced8;
+  left: 27.5vw;
+  width: 6vw;
+  height: 7vh;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  filter: opacity(0.7) drop-shadow(0 0 0 #FF1493);
+
+  background: url(${heart}) no-repeat;
+  background-size: 5vw 6.5vh;
+  background-position: center;
+  border: none;
 
   font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
-  line-height: 2.6vh;
-  color: white;
+  line-height: 6vh;
+  color: #FF9BE6;
 `;
 
 /* 타이머 화면 컴포넌트 */
