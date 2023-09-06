@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import List from "./List";
-import heart from "../image/todo_cloud.png";
+import InsertForm from "./InsertForm";
+import UpdateForm from "./UpdateForm";
+import  { useState} from 'react';
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -12,17 +14,6 @@ const Page = styled.div`
   top: 17.7vh;
   left: 22.5vw;
 `;
-
-/* 투두리스트 배너*/
-const ListText = styled.div`
-  position: absolute;
-  top: -4vh;
-  left: 24.5vw;
-  color: white;
-  font-size: 3vh;
-  font-weight: bold;
-`;
-
 
 /* 할 일 목록이 추가되는 공간 */
 const Lists = styled.ul`
@@ -38,65 +29,70 @@ const Lists = styled.ul`
   top: 4vh;
 `;
 
-/* 인풋 박스와 제출 버튼이 있는 공간 */
-const TodoInput = styled.div`
-  width: 49vw;
-  height: 2.8vh;
-  border: none;
-  position: absolute;
-  top: 0.8vh;
-  left: 5vw;
-  background-color: white;
-`;
-
-/* 인풋 박스 */
-const InputBox = styled.input`
-  width: 45vw;
-  height: 2.3vh;
-  color: #1a1a1a;
-  border: none;
-  line-height: 3vh;
-  font-size: 2vh;
-  font-style: italic;
-  text-align: center;
-  position: absolute;
-  top: 0vh;
-`;
-
-/* 제출 버튼 */
-const InputButton = styled.button`
-  width: 2.5vw;
-  height: 2.5vh;
-  position: absolute;
-  top: 0.1vh;
-  right: 0.5vw;
-  cursor: pointer;
-
-  filter: opacity(0.2) drop-shadow(0 0 0 #000000);
-
-  background: url(${heart}) no-repeat;
-  background-size: 2.5vw 2.5vh;
-  border: none;
-`;
-
 /* 투두 리스트 화면 컴포넌트 */
 function TodoDisplay() {
+  const [todoList, setTodoList] = useState([]);  //투두리스트 목록
+  const [preTodo, setPreTodo] = useState({});    // 수정 버튼 클릭 시 이전 내용 불러옴
+
+  const handleInsert=(value)=>{                  //투두 리스트 작성
+    setTodoList((current)=>{
+      const newlist = [...current];
+      newlist.push({
+        key:new Date().getTime(),
+        value,
+        isCompleted: false,
+      });
+      return newlist;
+    })  
+  }
+  const handleComplete = (index)=>{            // 완료된 투두 처리
+    setTodoList((current)=>{
+      const newList = [...current];
+      newList[index].isCompleted = true;
+      return newList;
+    })
+  }
+
+  const handleUpdate = (index)=>{    //수정 버튼 클릭 시 preTodo에 해당 key, value 값 저장, 해당 값은 UpdateForm으로
+    setPreTodo({key: todoList[index].key, value: todoList[index].value})
+  }
+
+  const handleSaveUpdate = (value, key)=>{  //UpdateForm에서 제출 시 수정된 내용 반영
+    setPreTodo({});
+    const updatedTodo = { 
+      key,
+      value,
+      isCompleted: false,};
+    setTodoList((current)=>{
+      const newList = [...current];
+      const todoIndex = newList.findIndex((item)=>{
+        return item.key === updatedTodo.key;
+      }) 
+      newList[todoIndex] = updatedTodo
+      return newList
+    })
+  }
+
+  const handleRemove = (index)=>{     // 투두 삭제
+    setTodoList((current)=>{
+      const newList = [...current];
+      newList.splice(index,1)
+      return newList;
+    })
+  }
+/* 수정할 내용 있음에 따라 조건부 렌더링*/
   return (
     <Page>
-      <ListText>to-do list</ListText>
-        <TodoInput>
-          <InputBox placeholder="enter" />
-          <InputButton />
-        </TodoInput>
-        <Lists>
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
-          <List />
-        </Lists>
+      {!preTodo.value &&(
+      <InsertForm onInsert={handleInsert}/>
+      )}
+      { preTodo.value &&(
+      <UpdateForm preTodo={preTodo} onSave={handleSaveUpdate} />
+      )}
+      <Lists>
+        <List todoList={todoList} onComplete={handleComplete}
+         onRemove={handleRemove} onUpdate={handleUpdate}/>
+      </Lists>
     </Page>
   );
 }

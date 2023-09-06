@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled  from "styled-components";
 import heart from "../image/todo_cloud.png";
+import  {useLayoutEffect } from 'react';
+
 
 /* 투두 리스트 완료 버튼 -> 파란색 */
 const Check = styled.button`
@@ -31,6 +33,7 @@ const Remove = styled.button`
   background: url(${heart}) no-repeat;
   background-size: 3vw 3vh;
   border: none;
+
 `;
 
 /* 투두 리스트 수정 버튼 -> 보라색 */
@@ -47,7 +50,7 @@ const Update = styled.button`
 
   background: url(${heart}) no-repeat;
   background-size: 3vw 3vh;
-  border: none;
+
 `;
 
 /* 투두 리스트 글 */
@@ -60,6 +63,7 @@ const Todo = styled.div`
   color: #1a1a1a;
   font-size: 2vh;
   line-height: 4vh;
+  text-decoration: ${({$decoration}) => ($decoration ? 'line-through':"")}
 `;
 
 /* 투두 리스트가 추가될 시 추가되는 박스 */
@@ -71,17 +75,33 @@ const ListBox = styled.li`
 
   background-color: white;
   border-radius: 2.5vh;
+
 `;
 
+
 /* 리스트 컴포넌트 */
-function List() {
+function  List({todoList, onComplete, onRemove, onUpdate}) {
+
+  //하트버튼 로드
+  const heartImgPreload = () => {
+    let img = new Image();
+    img.src = heart;
+  };
+  useLayoutEffect(() => {
+    heartImgPreload();
+  }, []); 
+ 
+  
   return (
-    <ListBox>
-      <Check />
-      <Todo>할 일</Todo>
-      <Update />
-      <Remove />
-    </ListBox>
+     todoList.map((item,index) =>{ 
+      return(
+        <ListBox key={item.key} >
+          <Check  type="button" onClick={()=>{if(typeof onComplete === "function"){onComplete(index);}}}/>
+          <Todo $decoration={item.isCompleted ? "completed":""}>{item.value}</Todo>
+          <Update type="button" onClick={()=>{if(typeof onUpdate === "function"){onUpdate(index);}}}/>
+          <Remove type="button" onClick={()=>{if(typeof onRemove === "function"){onRemove(index);}}}/>
+        </ListBox>)})
+     
   );
 }
 
