@@ -1,26 +1,26 @@
-import {useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import heart from "../image/todo_cloud.png";
 
+/* 인풋 박스와 제출 버튼이 있는 공간 */
 const TodoInput = styled.div`
-  width: 49vw;
-  height: 2.8vh;
+  width: 58vw;
+  height: 3.2vh;
   border: none;
   position: absolute;
-  top: 0.8vh;
-  left: 5vw;
+  top: 0.4vh;
+  left: 5.8vw;
   background-color: white;
 `;
 
 /* 인풋 박스 */
 const InputBox = styled.input`
-  width: 45vw;
-  height: 2.3vh;
+  width: 54vw;
+  height: 2.8vh;
   color: #1a1a1a;
   border: none;
   line-height: 3vh;
   font-size: 2vh;
-  font-style: italic;
   text-align: center;
   position: absolute;
   top: 0vh;
@@ -42,26 +42,29 @@ const InputButton = styled.button`
   border: none;
 `;
 
-function UpdateForm ({preTodo, onSave}){
- const [inputValue, setInputValue] = useState(preTodo.value);
-  
- const handleSubmit = (e)=>{
+function UpdateForm({ preTodo, onSave }) {
+  const [inputValue, setInputValue] = useState(preTodo.value);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(typeof onSave === "function" && inputValue) {
-        onSave(inputValue, preTodo.key);
+    if (typeof onSave === "function" && inputValue) {
+      onSave(inputValue, preTodo.key);
     }
     setInputValue("");
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <TodoInput>
+        <InputBox
+          value={inputValue || ""}
+          onChange={(event) => {
+            setInputValue(event.target.value);
+          }}
+        />
+        <InputButton type="submit" />
+      </TodoInput>
+    </form>
+  );
 }
-    return (
-        <form onSubmit={handleSubmit} >
-            <TodoInput>
-            <InputBox value={inputValue ||""} onChange={(event) => {
-            setInputValue(event.target.value)
-            }}/>
-            <InputButton type="submit"/>
-            </TodoInput>
-        </form>
-    )
-    };
-    
-export default UpdateForm
+
+export default UpdateForm;

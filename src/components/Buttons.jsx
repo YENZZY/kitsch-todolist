@@ -11,7 +11,7 @@ const TabMenu = styled.div`
   z-index: 10;
   position: absolute;
   right: 5vw;
-  bottom: 17.5vh;
+  bottom: 20vh;
 `;
 
 /* todolist 버튼 */

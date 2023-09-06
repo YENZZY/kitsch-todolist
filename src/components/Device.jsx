@@ -32,28 +32,28 @@ const Cloud2 = styled.div`
 
 /* 맥 장치 */
 const Mac = styled.div`
-  width: 60vw;
-  height: 80vh;
+  width: 70vw;
+  height: 96vh;
   position: absolute;
-  top: 10vh;
-  left: 20vw;
+  top: 2vh;
+  left: 15vw;
   background-image: url(${mac});
   background-repeat: no-repeat;
-  background-size: 60vw 80vh;
+  background-size: 70vw 98vh;
   background-position: 0 0;
 `;
 
 /* 맥 화면 */
 const HomePage = styled.div`
-  width: 55vw;
-  height: 47.4vh;
+  width: 64.3vw;
+  height: 58.1vh;
   position: absolute;
-  top: 3.7vh;
-  left: 2.5vw;
+  top: 4.6vh;
+  left: 2.8vw;
 
   background-image: url(${page});
   background-repeat: no-repeat;
-  background-size: 55vw 47.4vh;
+  background-size: 65vw 58.1vh;
   opacity: 0.7;
 `;
 
@@ -64,7 +64,7 @@ const DateContainer = styled.div`
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 4vh;
+  top: 5.5vh;
   right: 7vw;
 
   font-size: 2vh;

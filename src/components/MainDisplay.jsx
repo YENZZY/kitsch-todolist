@@ -4,22 +4,23 @@ import background from "../image/loading1.gif";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
-  width: 55vw;
-  height: 39.5vh;
+  width: 64.3vw;
+  height: 48vh;
   z-index: 5;
   opacity: 1;
   position: absolute;
-  top: 17.7vh;
-  left: 22.5vw;
+  top: 12vh;
+  left: 17.8vw;
 `;
 
 const GifBg = styled.div`
-  width: 55vw;
-  height: 36vh;
+  width: 64.2vw;
+  height: 43.8vh;
   position: absolute;
-  top: 4vh;
+  top: 4.5vh;
+  left: 0.1vw;
   background: url(${background}) no-repeat;
-  background-size: 55vw 36vh;
+  background-size: 64.2vw 43.8vh;
 `;
 
 const Title = styled.div`
@@ -90,7 +91,7 @@ function MainDisplay() {
   };
 
   return (
-    <Page onLoad={countdown()}>
+    <Page>
       <GifBg>
         <Title>
           <Words>K</Words>
