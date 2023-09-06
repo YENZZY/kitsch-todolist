@@ -1,35 +1,23 @@
 import styled from "styled-components";
-import heart from "../image/todo_cloud.png";
-import timer_star from "../image/timer_star.png";
+import heart from "../../image/todo_cloud.png";
+import timer_star from "../../image/timer_star.png";
 
-/* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
-  width: 64.3vw;
-  height: 48vh;
-  z-index: 5;
-  opacity: 1;
+  width: 90vw;
+  height: 68vh;
   position: absolute;
-  top: 12vh;
-  left: 17.8vw;
-`;
-
-/* 타이머 배너*/
-const TimerText = styled.div`
-  position: absolute;
-  top: -5vh;
-  left: 29vw;
-  color: white;
-  font-size: 3vh;
-  font-weight: bold;
+  z-index: 20;
+  top: 11vh;
+  left: 6.5vw;
 `;
 
 /* 타이머 원 */
 const TimerCircle = styled.div`
   position: absolute;
-  width: 17vw;
-  height: 30vh;
-  top: 8vh;
-  left: 23vw;
+  width: 50vw;
+  height: 40vh;
+  top: 13vh;
+  left: 18vw;
   background-color: transparent;
   border: 2vh solid #eccef5;
   border-radius: 50%;
@@ -38,20 +26,20 @@ const TimerCircle = styled.div`
 /*타이머 별*/
 const TimerStar = styled.div`
   position: absolute;
-  width: 4vw;
+  width: 7vw;
   height: 6vh;
-  top: 6vh;
-  left: 30.5vw;
+  top: 10vh;
+  left: 42vw;
   background: url(${timer_star}) no-repeat;
-  background-size: 4vw 6vh;
+  background-size: 7vw 6vh;
 `;
 
 /* 타이머 시간*/
 const TimerTime = styled.div`
   position: absolute;
-  top: 17vh;
-  left: 22.6vw;
-  width: 20vw;
+  top: 25vh;
+  left: 25.5vw;
+  width: 40vw;
   text-align: center;
   color: white;
   font-size: 10vh;
@@ -61,9 +49,9 @@ const TimerTime = styled.div`
 /*타이머 start 버튼*/
 const TimerStart = styled.button`
   position: absolute;
-  top: 29vh;
-  left: 26.5vw;
-  width: 6vw;
+  top: 38vh;
+  left: 34vw;
+  width: 10vw;
   height: 7vh;
   cursor: pointer;
   margin: 0;
@@ -72,23 +60,23 @@ const TimerStart = styled.button`
   filter: opacity(0.7) drop-shadow(0 0 0 #93daff);
 
   background: url(${heart}) no-repeat;
-  background-size: 5vw 6.5vh;
+  background-size: 10vw 7vh;
   background-position: center;
   border: none;
 
-  font-size: 2.5vh;
+  font-size: 2.7vh;
   font-weight: bold;
   text-align: center;
-  line-height: 6vh;
+  line-height: 7vh;
   color: #73e1e1;
 `;
 
 /*타이머 stop 버튼*/
 const TimerStop = styled.div`
   position: absolute;
-  top: 29vh;
-  left: 32.5vw;
-  width: 6vw;
+  top: 38vh;
+  left: 48vw;
+  width: 10vw;
   height: 7vh;
   cursor: pointer;
   margin: 0;
@@ -97,11 +85,11 @@ const TimerStop = styled.div`
   filter: opacity(0.7) drop-shadow(0 0 0 #ff1493);
 
   background: url(${heart}) no-repeat;
-  background-size: 5vw 6.5vh;
+  background-size: 10vw 7vh;
   background-position: center;
   border: none;
 
-  font-size: 2.5vh;
+  font-size: 2.7vh;
   font-weight: bold;
   text-align: center;
   line-height: 6vh;
@@ -109,7 +97,7 @@ const TimerStop = styled.div`
 `;
 
 /* 타이머 화면 컴포넌트 */
-function TimerDisplay() {
+function MobileTimer() {
   return (
     <Page>
       {/* <TimerText>timer</TimerText> */}
@@ -122,4 +110,4 @@ function TimerDisplay() {
   );
 }
 
-export default TimerDisplay;
+export default MobileTimer;

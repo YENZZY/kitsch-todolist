@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import background from "../image/loading1.gif";
+import background from "../../image/loading1.gif";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`

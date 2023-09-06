@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
-import heart from "../image/todo_cloud.png";
+import heart from "../../image/cloud.png";
+import { useState } from "react";
 
 /* 인풋 박스와 제출 버튼이 있는 공간 */
 const TodoInput = styled.div`
@@ -42,21 +42,22 @@ const InputButton = styled.button`
   border: none;
 `;
 
-function UpdateForm({ preTodo, onSave }) {
-  const [inputValue, setInputValue] = useState(preTodo.value);
-
+function InsertForm({ onInsert }) {
+  const [inputValue, setInputValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (typeof onSave === "function" && inputValue) {
-      onSave(inputValue, preTodo.key);
+    if (typeof onInsert === "function" && inputValue) {
+      onInsert(inputValue);
     }
     setInputValue("");
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <TodoInput>
         <InputBox
-          value={inputValue || ""}
+          placeholder="enter"
+          value={inputValue}
           onChange={(event) => {
             setInputValue(event.target.value);
           }}
@@ -67,4 +68,4 @@ function UpdateForm({ preTodo, onSave }) {
   );
 }
 
-export default UpdateForm;
+export default InsertForm;

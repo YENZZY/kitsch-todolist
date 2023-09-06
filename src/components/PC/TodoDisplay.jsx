@@ -46,12 +46,12 @@ function TodoDisplay() {
       return newlist;
     });
   };
-  
-  const handleComplete = (item,index) => {
+
+  const handleComplete = (item, index) => {
     // 완료된 투두 처리
-    let check = false
-    if(item.isCompleted === false){
-      check=true;
+    let check = false;
+    if (item.isCompleted === false) {
+      check = true;
     }
     setTodoList((current) => {
       const newList = [...current];

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import todo from "../image/button/todo.png";
-import timer from "../image/button/timer.png";
-import playlist from "../image/button/playlist.png";
+import todo from "../../image/button/todo.png";
+import timer from "../../image/button/timer.png";
+import playlist from "../../image/button/playlist.png";
 import { useNavigate } from "react-router-dom";
 
 /* 탭 메뉴 공간 */

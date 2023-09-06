@@ -1,7 +1,7 @@
 import React from "react";
-import cloud from "../image/cloud.png";
-import mac from "../image/mac.png";
-import page from "../image/page.png";
+import cloud from "../../image/cloud.png";
+import mac from "../../image/mac.png";
+import page from "../../image/page.png";
 import styled from "styled-components";
 import Button from "./Buttons";
 
