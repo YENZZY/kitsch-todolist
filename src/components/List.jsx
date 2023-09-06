@@ -94,7 +94,7 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
           type="button"
           onClick={() => {
             if (typeof onComplete === "function") {
-              onComplete(index);
+              onComplete(item, index);
             }
           }}
         />
