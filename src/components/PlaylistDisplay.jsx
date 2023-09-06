@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import playlist_sample from "../image/playlist_sample.png";
+import playlist_img from "../image/playlist_img.png";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -18,20 +18,20 @@ const PlaylistText = styled.div`
   top: -4vh;
   left: 24.5vw;
   color: white;
-  font-size: 28px;
+  font-size: 3vh;
   font-weight: bold;
 `;
 
 /* 플레이 리스트 샘플*/
-const Playlistimg = styled.div`
+const PlaylistImg = styled.div`
   width: 37vw;
   height: 35vh;
   position: relative;
-  top: 5vh;
+  top: 4.6vh;
   left: 9vw;
   overflow: hidden;
 
-  background-image: url(${playlist_sample});
+  background-image: url(${playlist_img});
   background-repeat:no-repeat;
   background-size:contain;
 `;
@@ -40,7 +40,7 @@ const Playlistimg = styled.div`
 function PlaylistDisplay() {
   return  <Page>
             <PlaylistText>play list</PlaylistText>
-              <Playlistimg/>
+              <PlaylistImg/>
           </Page>;
 }
 
