@@ -16,9 +16,9 @@ const Page = styled.div`
 const TimerText = styled.div`
   position: absolute;
   top: -4vh;
-  left: 47%;
+  left: 25.5vw;
   color: white;
-  font-size: 28px;
+  font-size: 3vh;
   font-weight: bold;
 `;
 
@@ -30,8 +30,8 @@ const TimerCircle = styled.div`
   top: 7vh;
   left: 19.5vw;
   background-color: transparent;
-  border: 20px solid #ECCEF5;
-  border-radius: 50%; 
+  border: 2vh solid #ECCEF5;
+  border-radius: 100vh; 
 `
 
 /*타이머 별*/
@@ -51,7 +51,7 @@ const TimerTime = styled.div`
   top: 13vh;
   left: 22vw;
   color: white;
-  font-size: 80px;
+  font-size: 8.5vh;
   font-weight: bold;
 `;
 
@@ -62,10 +62,10 @@ const TimerStart = styled.div`
   left: 22vw;
   width: 5vw;
   height: 3.5vh;
-  border-radius: 10px;
+  border-radius: 1vh;
   background-color: #CEECF5;
 
-  font-size: 28px;
+  font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
   line-height: 2.6vh;
@@ -78,10 +78,10 @@ const TimerStop = styled.div`
   left: 28vw;
   width: 5vw;
   height: 3.5vh;
-  border-radius: 10px;
+  border-radius: 1vh;
   background-color: #F6CED8;
 
-  font-size: 28px;
+  font-size: 2.5vh;
   font-weight: bold;
   text-align: center;
   line-height: 2.6vh;

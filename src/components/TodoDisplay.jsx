@@ -19,7 +19,7 @@ const ListText = styled.div`
   top: -4vh;
   left: 24.5vw;
   color: white;
-  font-size: 28px;
+  font-size: 3vh;
   font-weight: bold;
 `;
 
