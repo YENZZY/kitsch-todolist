@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import heart from "../../image/todo_cloud.png";
-import timer_star from "../../image/timer_star.png";
+import styled from 'styled-components';
+import heart from '../../image/todo_cloud.png';
+import timer_star from '../../image/timer_star.png';
+import { useEffect, useState } from 'react';
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -14,14 +15,14 @@ const Page = styled.div`
 `;
 
 /* 타이머 배너*/
-const TimerText = styled.div`
-  position: absolute;
-  top: -5vh;
-  left: 29vw;
-  color: white;
-  font-size: 3vh;
-  font-weight: bold;
-`;
+// const TimerText = styled.div`
+//   position: absolute;
+//   top: -5vh;
+//   left: 29vw;
+//   color: white;
+//   font-size: 3vh;
+//   font-weight: bold;
+// `;
 
 /* 타이머 원 */
 const TimerCircle = styled.div`
@@ -49,7 +50,7 @@ const TimerStar = styled.div`
 /* 타이머 시간*/
 const TimerTime = styled.div`
   position: absolute;
-  top: 17vh;
+  top: 17.3vh;
   left: 22.6vw;
   width: 20vw;
   text-align: center;
@@ -108,16 +109,92 @@ const TimerStop = styled.div`
   color: #ff9be6;
 `;
 
+const TimerCount = styled.div`
+  position: absolute;
+  top: 13vh;
+  left: 22.6vw;
+  width: 20vw;
+  text-align: center;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  div {
+    display: inline-block;
+    padding: 0 0.2vw;
+  }
+`;
+
+const TIMER_LIMIT = 20 * 60;
+
 /* 타이머 화면 컴포넌트 */
 function TimerDisplay() {
+  // state values
+  const [times, setTimes] = useState(60);
+  // const [times, setTimes] = useState(TIMER_LIMIT);
+  const [round, setRound] = useState(0);
+  const [goal, setGoal] = useState(0);
+  const [play, setPlay] = useState(false);
+
+  // eventListener
+  const onPlay = () => {
+    setPlay(true);
+    if (round === 4) {
+      setRound(0);
+      setGoal((current) => current + 1);
+    }
+  };
+  const onStop = () => {
+    setPlay(false);
+  };
+  const countRound = () => {
+    if (round < 4) {
+      setRound((current) => current + 1);
+    } else {
+      setRound(0);
+      goal < 12 ? setGoal((current) => current + 1) : setGoal(0);
+    }
+  };
+
+  // 타이머 기능
+  useEffect(() => {
+    let timerId;
+
+    if (play) {
+      timerId = setInterval(() => {
+        if (times !== 0) setTimes((prev) => prev - 1);
+        console.log(times);
+        if (times === 0) {
+          setPlay(false);
+          countRound();
+          setTimes(60);
+        }
+      }, 10);
+    }
+    return () => {
+      clearInterval(timerId);
+    };
+  });
+
   return (
     <Page>
       {/* <TimerText>timer</TimerText> */}
       <TimerCircle />
       <TimerStar />
-      <TimerTime>00:00</TimerTime>
-      <TimerStart>start</TimerStart>
-      <TimerStop>stop</TimerStop>
+      <TimerCount>
+        <div>
+          <div style={{ display: 'block', fontSize: '2vh' }}>Round</div>
+          <div style={{ display: 'block' }}>{round}/4</div>
+        </div>
+        <div>
+          <div style={{ display: 'block', fontSize: '2vh' }}>Goal</div>
+          <div style={{ display: 'block' }}>{goal}/12</div>
+        </div>
+      </TimerCount>
+      <TimerTime>
+        {parseInt(times / 60)}:{String(times % 60).padStart(2, '0')}
+      </TimerTime>
+      <TimerStart onClick={onPlay}>start</TimerStart>
+      <TimerStop onClick={onStop}>stop</TimerStop>
     </Page>
   );
 }
