@@ -125,34 +125,47 @@ const TimerCount = styled.div`
 `;
 
 const TIMER_LIMIT = 20 * 60;
+const TIMER_SPEED = 1;
 
 /* 타이머 화면 컴포넌트 */
 function TimerDisplay() {
   // state values
-  const [times, setTimes] = useState(60);
-  // const [times, setTimes] = useState(TIMER_LIMIT);
-  const [round, setRound] = useState(0);
-  const [goal, setGoal] = useState(0);
+  const [times, setTimes] = useState(localStorage.getItem('TimerTimes'));
+  const [round, setRound] = useState(
+    Number(localStorage.getItem('TimerRound'))
+  );
+  const [goal, setGoal] = useState(Number(localStorage.getItem('TimerGoal')));
+  if (times === null || round === null || goal === null) {
+    setTimes(TIMER_LIMIT);
+    // setTimes(TIMER_LIMIT);
+    setGoal(1);
+    setRound(1);
+  }
   const [play, setPlay] = useState(false);
+
+  function saveTimerInfo() {
+    localStorage.setItem('TimerTimes', times + '');
+    localStorage.setItem('TimerRound', round + '');
+    localStorage.setItem('TimerGoal', goal + '');
+  }
 
   // eventListener
   const onPlay = () => {
     setPlay(true);
-    if (round === 4) {
-      setRound(0);
-      setGoal((current) => current + 1);
-    }
+    saveTimerInfo();
   };
   const onStop = () => {
     setPlay(false);
+    saveTimerInfo();
   };
   const countRound = () => {
     if (round < 4) {
       setRound((current) => current + 1);
     } else {
-      setRound(0);
-      goal < 12 ? setGoal((current) => current + 1) : setGoal(0);
+      setRound(1);
+      goal < 12 ? setGoal((current) => current + 1) : setGoal(1);
     }
+    saveTimerInfo();
   };
 
   // 타이머 기능
@@ -161,17 +174,21 @@ function TimerDisplay() {
 
     if (play) {
       timerId = setInterval(() => {
-        if (times !== 0) setTimes((prev) => prev - 1);
-        console.log(times);
+        if (times !== 0) {
+          setTimes((prev) => prev - 1);
+          saveTimerInfo();
+        }
+        // console.log(times);
         if (times === 0) {
           setPlay(false);
           countRound();
-          setTimes(60);
+          setTimes(TIMER_LIMIT);
         }
-      }, 10);
+      }, TIMER_SPEED);
     }
     return () => {
       clearInterval(timerId);
+      saveTimerInfo();
     };
   });
 
@@ -191,7 +208,8 @@ function TimerDisplay() {
         </div>
       </TimerCount>
       <TimerTime>
-        {parseInt(times / 60)}:{String(times % 60).padStart(2, '0')}
+        {(parseInt(times / 60) + '').padStart(2, '0')}:
+        {((times % 60) + '').padStart(2, '0')}
       </TimerTime>
       <TimerStart onClick={onPlay}>start</TimerStart>
       <TimerStop onClick={onStop}>stop</TimerStop>
