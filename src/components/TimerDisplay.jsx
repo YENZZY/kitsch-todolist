@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import heart from '../../image/todo_cloud.png';
-import timer_star from '../../image/timer_star.png';
-import { useEffect, useState } from 'react';
+import styled from "styled-components";
+import heart from "../image/todo_cloud.png";
+import timer_star from "../image/timer_star.png";
+import { useEffect, useState } from "react";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -10,19 +10,27 @@ const Page = styled.div`
   z-index: 5;
   opacity: 1;
   position: absolute;
-  top: 12vh;
-  left: 17.8vw;
+  top: 10.1vh;
+  left: 2.8vw;
+
+  @media (max-width: 740px) {
+    width: 90vw;
+    height: 68vh;
+    z-index: 20;
+    top: 11vh;
+    left: 6.5vw;
+  }
 `;
 
 /* 타이머 배너*/
-// const TimerText = styled.div`
-//   position: absolute;
-//   top: -5vh;
-//   left: 29vw;
-//   color: white;
-//   font-size: 3vh;
-//   font-weight: bold;
-// `;
+const TimerText = styled.div`
+  position: absolute;
+  top: -5vh;
+  left: 29vw;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+`;
 
 /* 타이머 원 */
 const TimerCircle = styled.div`
@@ -34,6 +42,13 @@ const TimerCircle = styled.div`
   background-color: transparent;
   border: 2vh solid #eccef5;
   border-radius: 50%;
+
+  @media (max-width: 740px) {
+    width: 50vw;
+    height: 40vh;
+    top: 13vh;
+    left: 18vw;
+  }
 `;
 
 /*타이머 별*/
@@ -45,6 +60,14 @@ const TimerStar = styled.div`
   left: 30.5vw;
   background: url(${timer_star}) no-repeat;
   background-size: 4vw 6vh;
+
+  @media (max-width: 740px) {
+    width: 7vw;
+    height: 6vh;
+    top: 10vh;
+    left: 42vw;
+    background-size: 7vw 6vh;
+  }
 `;
 
 /* 타이머 시간*/
@@ -57,6 +80,13 @@ const TimerTime = styled.div`
   color: white;
   font-size: 10vh;
   font-weight: bold;
+
+  @media (max-width: 740px) {
+    top: 25vh;
+    left: 25.5vw;
+    width: 40vw;
+    font-size: 18vw;
+  }
 `;
 
 /*타이머 start 버튼*/
@@ -82,6 +112,16 @@ const TimerStart = styled.button`
   text-align: center;
   line-height: 6vh;
   color: #73e1e1;
+
+  @media (max-width: 740px) {
+    top: 45vh;
+    left: 34vw;
+    width: 10vw;
+    height: 7vh;
+    background-size: 10vw 7vh;
+    font-size: 2.7vh;
+    line-height: 7vh;
+  }
 `;
 
 /*타이머 stop 버튼*/
@@ -107,6 +147,16 @@ const TimerStop = styled.div`
   text-align: center;
   line-height: 6vh;
   color: #ff9be6;
+
+  @media (max-width: 740px) {
+    top: 45vh;
+    left: 48vw;
+    width: 10vw;
+    height: 7vh;
+    background-size: 10vw 7vh;
+    font-size: 2.7vh;
+    line-height: 6vh;
+  }
 `;
 
 const TimerCount = styled.div`
@@ -122,6 +172,13 @@ const TimerCount = styled.div`
     display: inline-block;
     padding: 0 0.2vw;
   }
+
+  @media (max-width: 740px) {
+    top: 18vh;
+    left: 25.5vw;
+    width: 40vw;
+    font-size: 6vw;
+  }
 `;
 
 const TIMER_LIMIT = 20 * 60;
@@ -130,11 +187,11 @@ const TIMER_SPEED = 1;
 /* 타이머 화면 컴포넌트 */
 function TimerDisplay() {
   // state values
-  const [times, setTimes] = useState(localStorage.getItem('TimerTimes'));
+  const [times, setTimes] = useState(localStorage.getItem("TimerTimes"));
   const [round, setRound] = useState(
-    Number(localStorage.getItem('TimerRound'))
+    Number(localStorage.getItem("TimerRound"))
   );
-  const [goal, setGoal] = useState(Number(localStorage.getItem('TimerGoal')));
+  const [goal, setGoal] = useState(Number(localStorage.getItem("TimerGoal")));
   if (times === null || round === null || goal === null) {
     setTimes(TIMER_LIMIT);
     // setTimes(TIMER_LIMIT);
@@ -144,9 +201,9 @@ function TimerDisplay() {
   const [play, setPlay] = useState(false);
 
   function saveTimerInfo() {
-    localStorage.setItem('TimerTimes', times + '');
-    localStorage.setItem('TimerRound', round + '');
-    localStorage.setItem('TimerGoal', goal + '');
+    localStorage.setItem("TimerTimes", times + "");
+    localStorage.setItem("TimerRound", round + "");
+    localStorage.setItem("TimerGoal", goal + "");
   }
 
   // eventListener
@@ -199,17 +256,17 @@ function TimerDisplay() {
       <TimerStar />
       <TimerCount>
         <div>
-          <div style={{ display: 'block', fontSize: '2vh' }}>Round</div>
-          <div style={{ display: 'block' }}>{round}/4</div>
+          <div style={{ display: "block", fontSize: "2vh" }}>Round</div>
+          <div style={{ display: "block" }}>{round}/4</div>
         </div>
         <div>
-          <div style={{ display: 'block', fontSize: '2vh' }}>Goal</div>
-          <div style={{ display: 'block' }}>{goal}/12</div>
+          <div style={{ display: "block", fontSize: "2vh" }}>Goal</div>
+          <div style={{ display: "block" }}>{goal}/12</div>
         </div>
       </TimerCount>
       <TimerTime>
-        {(parseInt(times / 60) + '').padStart(2, '0')}:
-        {((times % 60) + '').padStart(2, '0')}
+        {(parseInt(times / 60) + "").padStart(2, "0")}:
+        {((times % 60) + "").padStart(2, "0")}
       </TimerTime>
       <TimerStart onClick={onPlay}>start</TimerStart>
       <TimerStop onClick={onStop}>stop</TimerStop>

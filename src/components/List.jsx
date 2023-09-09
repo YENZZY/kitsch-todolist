@@ -1,27 +1,35 @@
 import styled from "styled-components";
-import heart from "../../image/todo_cloud.png";
+import heart from "../image/todo_cloud.png";
 import { useLayoutEffect } from "react";
 
 /* 투두 리스트 완료 버튼 -> 파란색 */
 const Check = styled.button`
-  width: 4vw;
-  height: 4vh;
+  width: 3vw;
+  height: 3vh;
   position: absolute;
-  left: 1.5vw;
+  left: 1vw;
   top: 1vh;
   cursor: pointer;
 
   filter: opacity(0.2) drop-shadow(0 0 0 #0000ff);
 
   background: url(${heart}) no-repeat;
-  background-size: 4vw 4vh;
+  background-size: 3vw 3vh;
   border: none;
+
+  @media (max-width: 741px) {
+    width: 4vw;
+    height: 4vh;
+    left: 1.5vw;
+    top: 1vh;
+    background-size: 4vw 4vh;
+  }
 `;
 
 /* 투두 리스트 삭제 버튼 -> 빨간색 */
 const Remove = styled.button`
-  width: 4vw;
-  height: 4vh;
+  width: 3vw;
+  height: 3vh;
   position: absolute;
   right: 2vw;
   top: 1vh;
@@ -30,16 +38,24 @@ const Remove = styled.button`
   filter: opacity(0.4) drop-shadow(0 0 0 #ff0000);
 
   background: url(${heart}) no-repeat;
-  background-size: 4vw 4vh;
+  background-size: 3vw 3vh;
   border: none;
+
+  @media (max-width: 741px) {
+    width: 4vw;
+    height: 4vh;
+    right: 2vw;
+    top: 1vh;
+    background-size: 4vw 4vh;
+  }
 `;
 
 /* 투두 리스트 수정 버튼 -> 보라색 */
 const Update = styled.button`
-  width: 4vw;
-  height: 4vh;
+  width: 3vw;
+  height: 3vh;
   position: absolute;
-  right: 6.5vw;
+  right: 5.5vw;
   top: 1vh;
   border: none;
   cursor: pointer;
@@ -47,7 +63,15 @@ const Update = styled.button`
   filter: opacity(0.4) drop-shadow(0 0 0 #ff3fff);
 
   background: url(${heart}) no-repeat;
-  background-size: 4vw 4vh;
+  background-size: 3vw 3vh;
+
+  @media (max-width: 741px) {
+    width: 4vw;
+    height: 4vh;
+    right: 6.5vw;
+    top: 1vh;
+    background-size: 4vw 4vh;
+  }
 `;
 
 /* 투두 리스트 글 */
@@ -55,25 +79,36 @@ const Todo = styled.div`
   width: 38vw;
   height: 4vh;
   position: absolute;
-  left: 7vw;
-  top: 0.6vh;
+  left: 5.5vw;
+  top: 0.3vh;
 
   color: #1a1a1a;
-  font-size: 2.5vh;
+  font-size: 2vh;
   line-height: 4vh;
   text-decoration: ${({ $decoration }) =>
     $decoration === "completed" ? "line-through" : "none"};
+
+  @media (max-width: 741px) {
+    left: 7vw;
+    top: 0.6vh;
+    font-size: 2.5vh;
+  }
 `;
 
 /* 투두 리스트가 추가될 시 추가되는 박스 */
 const ListBox = styled.li`
-  width: 85vw;
-  height: 6vh;
+  width: 58.5vw;
+  height: 5vh;
   margin: 1vh auto;
   position: relative;
 
   background-color: white;
   border-radius: 2.5vh;
+
+  @media (max-width: 741px) {
+    width: 85vw;
+    height: 6vh;
+  }
 `;
 
 /* 리스트 컴포넌트 */

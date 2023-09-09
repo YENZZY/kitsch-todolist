@@ -6,13 +6,21 @@ import { useState } from "react";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
-  width: 64.3vw;
+  width: 32em;
   height: 48vh;
-  z-index: 5;
+  z-index: 20;
   opacity: 1;
   position: absolute;
-  top: 12vh;
-  left: 17.8vw;
+  font-size: 2vh;
+  top: 10.1vh;
+  left: 2.8vw;
+
+  @media (max-width: 741px) {
+    width: 90vw;
+    height: 68vh;
+    top: 11vh;
+    left: 6.5vw;
+  }
 `;
 
 /* 할 일 목록이 추가되는 공간 */
@@ -27,6 +35,12 @@ const Lists = styled.ul`
 
   position: absolute;
   top: 4.4vh;
+
+  @media (max-width: 741px) {
+    width: 95vw;
+    height: 60vh;
+    top: 8vh;
+  }
 `;
 
 /* 투두 리스트 화면 컴포넌트 */
@@ -91,6 +105,7 @@ function TodoDisplay() {
       return newList;
     });
   };
+
   /* 수정할 내용 있음에 따라 조건부 렌더링*/
   return (
     <Page>

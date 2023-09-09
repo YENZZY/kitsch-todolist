@@ -1,6 +1,7 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import background from "../../image/loading1.gif";
+import background from "../image/loading1.gif";
+import { useMediaQuery } from "react-responsive";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -9,8 +10,16 @@ const Page = styled.div`
   z-index: 5;
   opacity: 1;
   position: absolute;
-  top: 12vh;
-  left: 17.8vw;
+  top: 10.1vh;
+  left: 2.8vw;
+
+  @media (max-width: 740px) {
+    width: 90vw;
+    height: 68vh;
+    z-index: 20;
+    top: 11vh;
+    left: 6.5vw;
+  }
 `;
 
 const GifBg = styled.div`
@@ -26,8 +35,14 @@ const GifBg = styled.div`
 const Title = styled.div`
   width: 55vw;
   position: absolute;
-  top: 13vh;
+  top: 20vh;
   left: 14vw;
+
+  @media (max-width: 740px) {
+    width: 90vw;
+    top: 26vh;
+    left: 10vw;
+  }
 `;
 
 const bounce = keyframes`
@@ -57,51 +72,45 @@ const Words = styled.span`
     0 4px 0 #fc60c1, 0 5px 0 #fc60c1, 0 6px 0 transparent, 0 7px 0 transparent,
     0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
 
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  &:nth-child(4) {
-    animation-delay: 0.6s;
-  }
-  &:nth-child(5) {
-    animation-delay: 0.8s;
-  }
-  &:nth-child(6) {
-    animation-delay: 1s;
+  ${(props) =>
+    props.index &&
+    css`
+      &:nth-child(${props.index}) {
+        animation-delay: ${0.2 * (props.index - 1)}s;
+      }
+    `}
+
+  @media (max-width: 740px) {
+    font-size: 20vw;
   }
 `;
 
 /* 메인 화면 컴포넌트 */
 function MainDisplay() {
-  let cnt = 5;
   const navigate = useNavigate();
 
+  /* 5초 뒤에 메인화면에서 투두리스트화면으로 이동되도록 하는 함수 */
   const countdown = () => {
     setTimeout(function () {
-      if (cnt === 0) {
-        navigate("/todo");
-      } else {
-        cnt -= 1;
-        countdown();
-      }
-    }, 1000);
+      navigate("/todo");
+    }, 5000);
   };
+
+  const isPc = useMediaQuery({
+    query: "(min-width:741px)",
+  });
 
   return (
     <Page onLoad={countdown()}>
-      <GifBg>
-        <Title>
-          <Words>K</Words>
-          <Words>i</Words>
-          <Words>t</Words>
-          <Words>s</Words>
-          <Words>c</Words>
-          <Words>h</Words>
-        </Title>
-      </GifBg>
+      {isPc && <GifBg />}
+      <Title>
+        <Words index={1}>K</Words>
+        <Words index={2}>i</Words>
+        <Words index={3}>t</Words>
+        <Words index={4}>s</Words>
+        <Words index={5}>c</Words>
+        <Words index={6}>h</Words>
+      </Title>
     </Page>
   );
 }

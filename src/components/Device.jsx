@@ -1,9 +1,22 @@
 import React from "react";
-import cloud from "../../image/cloud.png";
-import mac from "../../image/mac.png";
-import page from "../../image/page.png";
+import cloud from "../image/cloud.png";
+import mac from "../image/mac.png";
+import page from "../image/page.png";
+import background from "../image/bg.gif";
 import styled from "styled-components";
 import Button from "./Buttons";
+import { useMediaQuery } from "react-responsive";
+
+/* 움직이는 배경 */
+const Page = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: url(${background}) no-repeat;
+  background-size: 100vw 100vh;
+
+  margin: 0;
+  padding: 0;
+`;
 
 /* 배경 구름 */
 const Cloud1 = styled.div`
@@ -30,7 +43,7 @@ const Cloud2 = styled.div`
   left: 55vw;
 `;
 
-/* 맥 장치 */
+/* PC 맥 장치 */
 const Mac = styled.div`
   width: 70vw;
   height: 96vh;
@@ -43,7 +56,7 @@ const Mac = styled.div`
   background-position: 0 0;
 `;
 
-/* 맥 화면 */
+/* PC 맥 화면 */
 const HomePage = styled.div`
   width: 64.3vw;
   height: 58.1vh;
@@ -57,7 +70,7 @@ const HomePage = styled.div`
   opacity: 0.7;
 `;
 
-/* 날짜 표시 */
+/* PC 날짜 표시 */
 const DateContainer = styled.div`
   width: 10vw;
   height: 4vh;
@@ -73,8 +86,29 @@ const DateContainer = styled.div`
   color: white;
 `;
 
+/* 모바일 헤더 */
+const Header = styled.div`
+  width: 100vw;
+  height: 8vh;
+  background-color: #ff9eda;
+  position: absolute;
+  font-size: 3vh;
+  text-align: center;
+  color: white;
+  line-height: 8vh;
+`;
+
+const MobilePage = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: #fcd7ee;
+  position: relative;
+  z-index: 10;
+  opacity: 0.6;
+`;
+
 /* 장치 컴포넌트 */
-function Device() {
+function Device({ children }) {
   // 현재 날짜를 가져오는 함수
   const getCurrentDate = () => {
     const today = new Date();
@@ -83,17 +117,32 @@ function Device() {
     const day = String(today.getDate()).padStart(2, "0"); // 일을 두 자리 숫자로 포맷팅
     return `${year}.${month}.${day}`;
   };
+  const isPc = useMediaQuery({
+    query: "(min-width:741px)",
+  });
 
   return (
-    <>
+    <Page>
       <Cloud1 />
       <Cloud2 />
-      <Mac>
-        <HomePage />
-        <DateContainer>{getCurrentDate()}</DateContainer> {/* 현재 날짜 표시 */}
-        <Button />
-      </Mac>
-    </>
+      {isPc && (
+        <Mac>
+          <HomePage />
+          <DateContainer>{getCurrentDate()}</DateContainer>
+          {children}
+          <Button />
+        </Mac>
+      )}
+      {!isPc && (
+        <>
+          <MobilePage>
+            <Header>{getCurrentDate()}</Header>
+          </MobilePage>
+          <Button />
+          {children}
+        </>
+      )}
+    </Page>
   );
 }
 
