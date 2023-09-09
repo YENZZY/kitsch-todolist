@@ -12,7 +12,7 @@ const TodoInput = styled.div`
   left: 5.8vw;
   background-color: white;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 90vw;
     height: 6vh;
     border: solid 2px #ff9eda;
@@ -35,7 +35,7 @@ const InputBox = styled.input`
   position: absolute;
   top: 0vh;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 80vw;
     height: 5.7vh;
     border-radius: 1.5vh;
@@ -59,7 +59,7 @@ const InputButton = styled.button`
   background-size: 2.5vw 2.5vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 10vw;
     height: 6vh;
     right: 0vw;

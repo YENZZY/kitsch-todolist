@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 /* 탭 메뉴 공간 */
 const TabMenu = styled.div`
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 80vw;
     height: 13vh;
     background-color: #ff9eda;
@@ -35,7 +35,7 @@ const TodoList = styled.button`
   background-size: 5vw 7vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 10vw;
     height: 8vh;
     bottom: 6.5vh;
@@ -64,7 +64,7 @@ const Timer = styled.button`
   background-size: 5vw 7vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 10vw;
     height: 8vh;
     bottom: 6.5vh;
@@ -93,7 +93,7 @@ const Playlist = styled.button`
   background-size: 5vw 7vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 10vw;
     height: 8vh;
     bottom: 6.5vh;

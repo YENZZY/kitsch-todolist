@@ -15,7 +15,7 @@ const Page = styled.div`
   top: 10.1vh;
   left: 2.8vw;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 90vw;
     height: 68vh;
     top: 11vh;
@@ -36,7 +36,7 @@ const Lists = styled.ul`
   position: absolute;
   top: 4.4vh;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 95vw;
     height: 60vh;
     top: 8vh;

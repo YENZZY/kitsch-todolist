@@ -17,7 +17,7 @@ const Check = styled.button`
   background-size: 3vw 3vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 4vw;
     height: 4vh;
     left: 1.5vw;
@@ -41,7 +41,7 @@ const Remove = styled.button`
   background-size: 3vw 3vh;
   border: none;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 4vw;
     height: 4vh;
     right: 2vw;
@@ -65,7 +65,7 @@ const Update = styled.button`
   background: url(${heart}) no-repeat;
   background-size: 3vw 3vh;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 4vw;
     height: 4vh;
     right: 6.5vw;
@@ -88,7 +88,7 @@ const Todo = styled.div`
   text-decoration: ${({ $decoration }) =>
     $decoration === "completed" ? "line-through" : "none"};
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     left: 7vw;
     top: 0.6vh;
     font-size: 2.5vh;
@@ -105,7 +105,7 @@ const ListBox = styled.li`
   background-color: white;
   border-radius: 2.5vh;
 
-  @media (max-width: 741px) {
+  @media (max-width: 740px) {
     width: 85vw;
     height: 6vh;
   }
