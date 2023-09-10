@@ -2,7 +2,7 @@ import styled from "styled-components";
 import List from "./List";
 import InsertForm from "./InsertForm";
 import UpdateForm from "./UpdateForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -48,16 +48,23 @@ function TodoDisplay() {
   const [todoList, setTodoList] = useState([]); //투두리스트 목록
   const [preTodo, setPreTodo] = useState({}); // 수정 버튼 클릭 시 이전 내용 불러옴
 
+  useEffect(()=>{
+    //최초 렌더링 시 로컬스토리지에 저장된 값이 있으면 불러옴
+      const localList = localStorage.getItem('todo');
+      if(localList) setTodoList(JSON.parse(localList)); 
+    },[])
+
   const handleInsert = (value) => {
     //투두 리스트 작성
     setTodoList((current) => {
-      const newlist = [...current];
-      newlist.push({
+      const newList = [...current];
+      newList.push({
         key: new Date().getTime(),
         value,
         isCompleted: false,
       });
-      return newlist;
+      localStorage.setItem("todo", JSON.stringify(newList));
+      return newList;
     });
   };
 
@@ -70,6 +77,7 @@ function TodoDisplay() {
     setTodoList((current) => {
       const newList = [...current];
       newList[index].isCompleted = check;
+      localStorage.setItem("todo", JSON.stringify(newList));
       return newList;
     });
   };
@@ -93,6 +101,7 @@ function TodoDisplay() {
         return item.key === updatedTodo.key;
       });
       newList[todoIndex] = updatedTodo;
+      localStorage.setItem("todo", JSON.stringify(newList));
       return newList;
     });
   };
@@ -102,6 +111,7 @@ function TodoDisplay() {
     setTodoList((current) => {
       const newList = [...current];
       newList.splice(index, 1);
+      localStorage.setItem("todo", JSON.stringify(newList));
       return newList;
     });
   };

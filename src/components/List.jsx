@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import heart from "../image/todo_cloud.png";
-import { useLayoutEffect } from "react";
+import heart from "../image/todo_cloud_smallsize.png";
+
 
 /* 투두 리스트 완료 버튼 -> 파란색 */
 const Check = styled.button`
   width: 3vw;
   height: 3vh;
+  padding:0;
   position: absolute;
   left: 1vw;
   top: 1vh;
@@ -16,13 +17,13 @@ const Check = styled.button`
   background: url(${heart}) no-repeat;
   background-size: 3vw 3vh;
   border: none;
-
+ 
   @media (max-width: 740px) {
-    width: 4vw;
+    width: 6vw;
     height: 4vh;
     left: 1.5vw;
     top: 1vh;
-    background-size: 4vw 4vh;
+    background-size: 6vw 4vh;
   }
 `;
 
@@ -30,6 +31,7 @@ const Check = styled.button`
 const Remove = styled.button`
   width: 3vw;
   height: 3vh;
+  padding:0;
   position: absolute;
   right: 2vw;
   top: 1vh;
@@ -42,11 +44,11 @@ const Remove = styled.button`
   border: none;
 
   @media (max-width: 740px) {
-    width: 4vw;
+    width: 6vw;
     height: 4vh;
     right: 2vw;
     top: 1vh;
-    background-size: 4vw 4vh;
+    background-size: 6vw 4vh;
   }
 `;
 
@@ -54,6 +56,7 @@ const Remove = styled.button`
 const Update = styled.button`
   width: 3vw;
   height: 3vh;
+  padding:0;
   position: absolute;
   right: 5.5vw;
   top: 1vh;
@@ -66,12 +69,19 @@ const Update = styled.button`
   background-size: 3vw 3vh;
 
   @media (max-width: 740px) {
-    width: 4vw;
+    width: 6vw;
     height: 4vh;
-    right: 6.5vw;
+    right: 8vw;
     top: 1vh;
-    background-size: 4vw 4vh;
+    background-size: 6vw 4vh;
   }
+`;
+/* 투두 리스트 버튼 텍스트(do,edit,del) */
+const ButtonText = styled.div`
+  font-size: 0.1vh;
+  font-weight: bold;
+  text-align: center;
+  color: #ff9be6;
 `;
 
 /* 투두 리스트 글 */
@@ -89,8 +99,8 @@ const Todo = styled.div`
     $decoration === "completed" ? "line-through" : "none"};
 
   @media (max-width: 740px) {
-    left: 7vw;
-    top: 0.6vh;
+    left: 8vw;
+    top: 0.8vh;
     font-size: 2.5vh;
   }
 `;
@@ -113,14 +123,6 @@ const ListBox = styled.li`
 
 /* 리스트 컴포넌트 */
 function List({ todoList, onComplete, onRemove, onUpdate }) {
-  //하트버튼 로드
-  const heartImgPreload = () => {
-    let img = new Image();
-    img.src = heart;
-  };
-  useLayoutEffect(() => {
-    heartImgPreload();
-  }, []);
 
   return todoList.map((item, index) => {
     return (
@@ -131,8 +133,9 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
             if (typeof onComplete === "function") {
               onComplete(item, index);
             }
-          }}
-        />
+          }}>
+            <ButtonText>do</ButtonText>
+        </Check>
         <Todo $decoration={item.isCompleted ? "completed" : ""}>
           {item.value}
         </Todo>
@@ -142,16 +145,18 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
             if (typeof onUpdate === "function") {
               onUpdate(index);
             }
-          }}
-        />
+          }}>
+          <ButtonText>edit</ButtonText>
+        </Update>
         <Remove
           type="button"
           onClick={() => {
             if (typeof onRemove === "function") {
               onRemove(index);
             }
-          }}
-        />
+          }}>
+           <ButtonText>del</ButtonText> 
+        </Remove>
       </ListBox>
     );
   });
