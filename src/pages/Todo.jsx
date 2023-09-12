@@ -1,4 +1,4 @@
-import TodoDisplay from "../components/TodoDisplay";
+import TodoDisplay from "../components/display/TodoDisplay";
 import Device from "../components/Device";
 
 /* 투두 리스트 페이지 */

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import playlist_img from "../image/playlist_img.png";
+import playlist_img from "../../image/playlist_img.png";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`

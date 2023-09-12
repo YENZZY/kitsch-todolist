@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import heart from "../image/todo_cloud.png";
-import timer_star from "../image/timer_star.png";
+import heart from "../../image/todo_cloud.png";
+import timer_star from "../../image/timer_star.png";
 import { useEffect, useState } from "react";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
@@ -35,10 +35,10 @@ const TimerText = styled.div`
 /* 타이머 원 */
 const TimerCircle = styled.div`
   position: absolute;
-  width: 17vw;
+  width: 20vw;
   height: 30vh;
   top: 8vh;
-  left: 23vw;
+  left: 21.5vw;
   background-color: transparent;
   border: 2vh solid #eccef5;
   border-radius: 50%;
@@ -83,9 +83,9 @@ const TimerTime = styled.div`
 
   @media (max-width: 740px) {
     top: 25vh;
-    left: 25.5vw;
+    left: 23.5vw;
     width: 40vw;
-    font-size: 18vw;
+    font-size: 17vw;
   }
 `;
 

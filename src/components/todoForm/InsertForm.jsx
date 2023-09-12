@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import heart from "../image/cloud.png";
+import heart from "../../image/cloud.png";
 import { useState } from "react";
 
 /* 인풋 박스와 제출 버튼이 있는 공간 */

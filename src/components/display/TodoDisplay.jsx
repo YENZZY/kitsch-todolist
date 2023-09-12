@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import List from "./List";
-import InsertForm from "./InsertForm";
-import UpdateForm from "./UpdateForm";
+import List from "../todoForm/List";
+import InsertForm from "../todoForm/InsertForm";
+import UpdateForm from "../todoForm/UpdateForm";
 import { useState, useEffect } from "react";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
@@ -48,11 +48,11 @@ function TodoDisplay() {
   const [todoList, setTodoList] = useState([]); //투두리스트 목록
   const [preTodo, setPreTodo] = useState({}); // 수정 버튼 클릭 시 이전 내용 불러옴
 
-  useEffect(()=>{
+  useEffect(() => {
     //최초 렌더링 시 로컬스토리지에 저장된 값이 있으면 불러옴
-      const localList = localStorage.getItem('todo');
-      if(localList) setTodoList(JSON.parse(localList)); 
-    },[])
+    const localList = localStorage.getItem("todo");
+    if (localList) setTodoList(JSON.parse(localList));
+  }, []);
 
   const handleInsert = (value) => {
     //투두 리스트 작성

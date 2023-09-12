@@ -1,4 +1,4 @@
-import TimerDisplay from "../components/TimerDisplay";
+import TimerDisplay from "../components/display/TimerDisplay";
 import Device from "../components/Device";
 
 /* 타이머 페이지 */

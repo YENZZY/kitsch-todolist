@@ -1,4 +1,4 @@
-import MainDisplay from "../components/MainDisplay";
+import MainDisplay from "../components/display/MainDisplay";
 import Device from "../components/Device";
 
 /* 메인 페이지 */

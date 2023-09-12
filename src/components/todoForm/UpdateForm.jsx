@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import heart from "../image/todo_cloud.png";
+import heart from "../../image/todo_cloud.png";
 
 /* 인풋 박스와 제출 버튼이 있는 공간 */
 const TodoInput = styled.div`

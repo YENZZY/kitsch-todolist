@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import heart from "../image/todo_cloud_smallsize.png";
-
+import heart from "../../image/todo_cloud_smallsize.png";
 
 /* 투두 리스트 완료 버튼 -> 파란색 */
 const Check = styled.button`
   width: 3vw;
   height: 3vh;
-  padding:0;
+  padding: 0;
   position: absolute;
   left: 1vw;
   top: 1vh;
@@ -17,7 +16,7 @@ const Check = styled.button`
   background: url(${heart}) no-repeat;
   background-size: 3vw 3vh;
   border: none;
- 
+
   @media (max-width: 740px) {
     width: 6vw;
     height: 4vh;
@@ -31,7 +30,7 @@ const Check = styled.button`
 const Remove = styled.button`
   width: 3vw;
   height: 3vh;
-  padding:0;
+  padding: 0;
   position: absolute;
   right: 2vw;
   top: 1vh;
@@ -56,7 +55,7 @@ const Remove = styled.button`
 const Update = styled.button`
   width: 3vw;
   height: 3vh;
-  padding:0;
+  padding: 0;
   position: absolute;
   right: 5.5vw;
   top: 1vh;
@@ -123,7 +122,6 @@ const ListBox = styled.li`
 
 /* 리스트 컴포넌트 */
 function List({ todoList, onComplete, onRemove, onUpdate }) {
-
   return todoList.map((item, index) => {
     return (
       <ListBox key={item.key}>
@@ -133,8 +131,9 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
             if (typeof onComplete === "function") {
               onComplete(item, index);
             }
-          }}>
-            <ButtonText>do</ButtonText>
+          }}
+        >
+          <ButtonText>do</ButtonText>
         </Check>
         <Todo $decoration={item.isCompleted ? "completed" : ""}>
           {item.value}
@@ -145,7 +144,8 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
             if (typeof onUpdate === "function") {
               onUpdate(index);
             }
-          }}>
+          }}
+        >
           <ButtonText>edit</ButtonText>
         </Update>
         <Remove
@@ -154,8 +154,9 @@ function List({ todoList, onComplete, onRemove, onUpdate }) {
             if (typeof onRemove === "function") {
               onRemove(index);
             }
-          }}>
-           <ButtonText>del</ButtonText> 
+          }}
+        >
+          <ButtonText>del</ButtonText>
         </Remove>
       </ListBox>
     );

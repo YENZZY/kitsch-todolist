@@ -1,4 +1,4 @@
-import PlaylistDisplay from "../components/PlaylistDisplay";
+import PlaylistDisplay from "../components/display/PlaylistDisplay";
 import Device from "../components/Device";
 
 /* 플레이리스트 페이지 */
