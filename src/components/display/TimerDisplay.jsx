@@ -22,16 +22,6 @@ const Page = styled.div`
   }
 `;
 
-/* 타이머 배너*/
-const TimerText = styled.div`
-  position: absolute;
-  top: -5vh;
-  left: 29vw;
-  color: white;
-  font-size: 3vh;
-  font-weight: bold;
-`;
-
 /* 타이머 원 */
 const TimerCircle = styled.div`
   position: absolute;
