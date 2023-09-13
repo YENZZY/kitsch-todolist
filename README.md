@@ -34,16 +34,26 @@ npm start
 
 ### Playlist 🎵
 
+<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/32f8b1cb-b7ca-4088-9cd7-2ee5be2b385d" width="700">
+
 ### 모바일 UI 📱
 
 <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/d76a21f3-7494-4ea3-96ad-9c7d6610c144" width="350" height="400"> <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/d68f16f8-893e-4f43-bed5-0f1e905b5046" width="350" height="400">
-<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/481a778f-b8ea-4acf-8b85-8851d6ab0e56" width="350" height="400">
+<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/481a778f-b8ea-4acf-8b85-8851d6ab0e56" width="350" height="400"> <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/83ecb612-bddc-459b-83e9-f219bb6320f4" width="350" height="400">
 
 ### 업데이트 계획 ☑️
 
 - 사용자 친화적인 UI 구성을 위해 **em** 단위 적용
 
+<br>
+
 ## 개발 환경
 
-<img  src="https://img.shields.io/badge/visual studio code-007ACC?style=for-the-badge&logo=visual studio code&logoColor=white"> <img  src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img  src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img  src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
-<img  src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"> <img  src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img  src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white">
+<img  src="https://img.shields.io/badge/visual studio code-007ACC?style=for-the-badge&logo=visual studio code&logoColor=white">
+<img  src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+<img  src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img  src="https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+<br>
+<img  src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
+<img  src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+<img  src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white">
