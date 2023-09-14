@@ -8,7 +8,6 @@
 - 개발 기간 : 2023.08.28 ~ 2023.09.14
 - 🧑‍🤝‍🧑팀원
   - [김성오](https://github.com/sungohki)
-  - [김현광](https://github.com/kimhyunkwang)
   - [장예은](https://github.com/YENZZY)
   - [정세은](https://github.com/seeunchung)
   - [조희정](https://github.com/Cho-heejung)
@@ -34,12 +33,12 @@ npm start
 
 ### Playlist 🎵
 
-<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/32f8b1cb-b7ca-4088-9cd7-2ee5be2b385d" width="700">
+<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/124243473/9f4b97ca-7905-4081-a291-afb2b7408407" width="700">
 
 ### 모바일 UI 📱
 
 <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/d76a21f3-7494-4ea3-96ad-9c7d6610c144" width="350" height="400"> <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/d68f16f8-893e-4f43-bed5-0f1e905b5046" width="350" height="400">
-<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/481a778f-b8ea-4acf-8b85-8851d6ab0e56" width="350" height="400"> <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/83ecb612-bddc-459b-83e9-f219bb6320f4" width="350" height="400">
+<img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/66050038/481a778f-b8ea-4acf-8b85-8851d6ab0e56" width="350" height="400"> <img src="https://github.com/Cho-heejung/Kitsch-Todo/assets/124243473/63465587-9323-482a-b342-5fbc7680c61a" width="350" height="400">
 
 ### 업데이트 계획 ☑️
 
