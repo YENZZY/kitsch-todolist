@@ -1,5 +1,5 @@
+import React from 'react';
 import styled from "styled-components";
-import playlist_img from "../../image/playlist_img.png";
 
 /* 각 페이지마다 바뀌는 실질적인 공간 */
 const Page = styled.div`
@@ -30,7 +30,7 @@ const PlaylistText = styled.div`
   font-weight: bold;
 `;
 
-/* 플레이 리스트 샘플*/
+/* 플레이 리스트 샘플
 const PlaylistImg = styled.div`
   width: 46vw;
   height: 43.5vh;
@@ -50,12 +50,71 @@ const PlaylistImg = styled.div`
     background-size: 90vw 68vh;
   }
 `;
+*/
+
+  /*유튜브 영상 링크 */
+  const Playlist = [
+    {/*유튜브 영상 1 */
+      videoId: "f3m_WqxhL4o",
+      
+    },
+    {/*유튜브 영상 2 */
+      videoId: "HlEY65BQDI4",
+      
+    },
+    {/*유튜브 영상 3 */
+      videoId: "8vC1i9NgOoo",
+      
+    },
+    {/*유튜브 영상 4 */
+      videoId: "6i9Yh3YNzf0",
+    
+    }
+  ];
+
+const VideoContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const VideoWrapper = styled.div`
+  width: calc(50% - 16px);
+  box-sizing: border-box;
+  margin-top: ${(props) => (props.isFirstRow ? '5vh' : '0')};
+  
+
+  div {
+    width: 30vw;
+    height: 22vh;
+    margin-left:1.5vw;
+    iframe {
+      width: 30vw;
+      height: 20vh;
+      border-radius: 0.8vw;
+    }
+  }
+`;
 
 /* 플레이리스트 화면 컴포넌트 */
 function PlaylistDisplay() {
   return (
     <Page>
-      <PlaylistImg />
+      <VideoContainer>
+        {Playlist.map((video, index) => (
+          <VideoWrapper
+            key={index}
+            isFirstRow={index === 0 || index === 1}
+            isFirstColumn={index === 0 || index === 2}
+          >
+            <div>
+              <iframe
+                src={`https://www.youtube.com/embed/${video.videoId}`}
+                allowFullScreen
+              ></iframe>
+            </div>
+          </VideoWrapper>
+        ))}
+      </VideoContainer>
     </Page>
   );
 }
