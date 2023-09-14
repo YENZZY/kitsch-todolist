@@ -15,8 +15,8 @@ const Page = styled.div`
     width: 90vw;
     height: 68vh;
     z-index: 20;
-    top: 11vh;
-    left: 6.5vw;
+    top: 18vh;
+    left: 16.5vw;
   }
 `;
 
@@ -67,7 +67,7 @@ const PlaylistImg = styled.div`
       
     },
     {/*유튜브 영상 4 */
-      videoId: "6i9Yh3YNzf0",
+      videoId: "x6i3_LfeTjY",
     
     }
   ];
@@ -75,22 +75,33 @@ const PlaylistImg = styled.div`
 const VideoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+
 `;
 
 const VideoWrapper = styled.div`
   width: calc(50% - 16px);
   box-sizing: border-box;
-  margin-top: ${(props) => (props.isFirstRow ? '5vh' : '0')};
+  margin-top: ${(props) => (props.isFirstRow ? '5.5vh' : '0')};
   
-
   div {
     width: 30vw;
-    height: 22vh;
+    height: 21vh;
     margin-left:1.5vw;
+
     iframe {
       width: 30vw;
       height: 20vh;
       border-radius: 0.8vw;
+    }
+  }
+  @media (max-width: 740px) {
+    
+    /* 상단 두 개의 비디오에 대한 스타일 */
+    &:nth-child(-n + 2) {
+      margin-bottom: 5vh; /* 상단 두 개와 하단 두 개 간의 간격 조절 */
+    }
+    &:nth-child(2), &:nth-child(4) {
+      margin-left: -5vw; /* 1번과 3번 영상에만 margin-left 적용 */
     }
   }
 `;
